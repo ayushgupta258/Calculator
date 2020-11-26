@@ -51,4 +51,9 @@ public class CalcTest {
 			assertEquals("Negatives not allowed: -1",e.getMessage());
 		}
 	}
+	
+	@Test
+	public void shouldIgnoreNumberGreaterThan1000() {
+		assertEquals(2,Calc.add("1001,2"));
+	}
 }
