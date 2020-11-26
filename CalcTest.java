@@ -21,4 +21,9 @@ public class CalcTest {
 	public void returnSumOfMultipleNumberDeliminatedByComma() {
 		assertEquals(15,Calc.add("1,2,4,3,5"));
 	}
+	
+	@Test
+	public void acceptNewLineAsADeliminator() {
+		assertEquals(15,Calc.add("1,2\n4,3,5"));
+	}
 }
