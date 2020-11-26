@@ -1,13 +1,15 @@
 public class Calc {
 	static int add(String number){
-		if(number.isEmpty()) {
+		if(number.equals("")) {
 			return 0;
 		}
-		else if(number.contains(",")){
+		else {
+			int sum=0;
 			String[] nums=number.split(",");
-			return Integer.parseInt(nums[0])+Integer.parseInt(nums[1]);
+			for(String num: nums) {
+				sum+=Integer.parseInt(num);
+			}
+			return sum;
 		}
-		else
-			return Integer.parseInt(number);
 	}
 }
