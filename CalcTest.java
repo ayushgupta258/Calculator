@@ -31,4 +31,24 @@ public class CalcTest {
 	public void acceptCustomDeliminator() {
 		assertEquals(3,Calc.add("//;\n1;2"));
 	}
+	
+	@Test
+	public void shouldRaiseExceptionForNegativeNumber() {
+		try {
+			Calc.add("-1,2,3");
+			fail("Exception occured!!");
+		}catch(RuntimeException e) {
+			
+		}
+	}
+	
+	@Test
+	public void shouldShowMessageForNegativeNumber() {
+		try {
+			Calc.add("-1,2,3");
+			fail("Exception occured!!");
+		}catch(RuntimeException e) {
+			assertEquals("Negatives not allowed: -1",e.getMessage());
+		}
+	}
 }
