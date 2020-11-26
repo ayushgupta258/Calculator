@@ -56,4 +56,9 @@ public class CalcTest {
 	public void shouldIgnoreNumberGreaterThan1000() {
 		assertEquals(2,Calc.add("1001,2"));
 	}
+	
+	@Test
+	public void acceptVariableLengthDeliminator() {
+		assertEquals(6,Calc.add("//[***]\n1***2***3"));
+	}
 }
