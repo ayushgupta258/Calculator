@@ -7,9 +7,18 @@ public class Calc {
 			String[] nums=null;
 			if(number.startsWith("//")){
 				String[] customDelimatorWithNumber=number.split("\n",2);
-				String delimator=customDelimatorWithNumber[0];
+				String customDelimator=customDelimatorWithNumber[0];
+				String delimator="";
+				for(int i=0;i<customDelimator.length();i++) {
+					if(customDelimator.charAt(i)=='/'
+							||customDelimator.charAt(i)=='['
+							||customDelimator.charAt(i)==']')
+						continue;
+					delimator+="\\"+customDelimator.charAt(i);
+				}
+				System.out.println(delimator);
 				number=customDelimatorWithNumber[1].trim();
-				nums=number.split(delimator.substring(2));
+				nums=number.split(delimator);
 			}
 			else {
 				nums=number.split(",|\n");
