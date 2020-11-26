@@ -7,18 +7,28 @@ public class Calc {
 			String[] nums=null;
 			if(number.startsWith("//")){
 				String[] customDelimatorWithNumber=number.split("\n",2);
-				String customDelimator=customDelimatorWithNumber[0];
-				String delimator="";
-				for(int i=0;i<customDelimator.length();i++) {
-					if(customDelimator.charAt(i)=='/'
-							||customDelimator.charAt(i)=='['
-							||customDelimator.charAt(i)==']')
+				String[] customDelimator=customDelimatorWithNumber[0].split("\\]\\[");
+				String delimator1="";
+				String delimator2="";
+				for(int i=0;i<customDelimator[0].length();i++) {
+					if(customDelimator[0].charAt(i)=='/'
+							||customDelimator[0].charAt(i)=='['
+							||customDelimator[0].charAt(i)==']')
 						continue;
-					delimator+="\\"+customDelimator.charAt(i);
+					delimator1+="\\"+customDelimator[0].charAt(i);
 				}
-				System.out.println(delimator);
-				number=customDelimatorWithNumber[1].trim();
-				nums=number.split(delimator);
+				if(customDelimatorWithNumber[0].contains("][")) {
+					for(int i=0;i<customDelimator[1].length();i++) {
+						if(customDelimator[1].charAt(i)=='/'
+								||customDelimator[1].charAt(i)=='['
+								||customDelimator[1].charAt(i)==']')
+							continue;
+						delimator2+="\\"+customDelimator[1].charAt(i);
+					}
+				}
+				
+				number=customDelimatorWithNumber[1];
+				nums=number.split(delimator1+"|"+delimator2);
 			}
 			else {
 				nums=number.split(",|\n");
