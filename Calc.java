@@ -19,6 +19,8 @@ public class Calc {
 				try {
 					if(Integer.parseInt(num)<0)
 						throw new RuntimeException("Negatives not allowed: -1");
+					if(Integer.parseInt(num)>1000)
+						continue;
 					
 					sum+=Integer.parseInt(num);
 				}catch(NumberFormatException e) {
