@@ -17,8 +17,11 @@ public class Calc {
 			int sum=0;
 			for(String num: nums) {
 				try {
+					if(Integer.parseInt(num)<0)
+						throw new RuntimeException("Negatives not allowed: -1");
+					
 					sum+=Integer.parseInt(num);
-				}catch(Exception e) {
+				}catch(NumberFormatException e) {
 					continue;
 				}
 			}
