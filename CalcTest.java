@@ -16,4 +16,9 @@ public class CalcTest {
 	public void returnSumOfTwoNumberDeliminatedByComma() {
 		assertEquals(3,Calc.add("1,2"));
 	}
+	
+	@Test
+	public void returnSumOfMultipleNumberDeliminatedByComma() {
+		assertEquals(15,Calc.add("1,2,4,3,5"));
+	}
 }
