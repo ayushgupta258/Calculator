@@ -26,4 +26,9 @@ public class CalcTest {
 	public void acceptNewLineAsADeliminator() {
 		assertEquals(15,Calc.add("1,2\n4,3,5"));
 	}
+	
+	@Test
+	public void acceptCustomDeliminator() {
+		assertEquals(3,Calc.add("//;\n1;2"));
+	}
 }
