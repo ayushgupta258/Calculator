@@ -61,4 +61,9 @@ public class CalcTest {
 	public void acceptVariableLengthDeliminator() {
 		assertEquals(6,Calc.add("//[***]\n1***2***3"));
 	}
+	
+	@Test
+	public void acceptMultipleDeliminator() {
+		assertEquals(6,Calc.add("//[*][%]\n1*2%3"));
+	}
 }
